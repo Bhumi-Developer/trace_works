@@ -64,7 +64,7 @@ export default function Page() {
       localStorage.setItem('user', JSON.stringify(data.user));
       
       setSuccess('Account created successfully! Redirecting to home page...');
-      console.log('Signup successful:', data.user);
+      // console.log('Signup successful:', data.user);
       
       // Redirect to home page after 2 seconds
       setTimeout(() => {

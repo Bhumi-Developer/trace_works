@@ -59,7 +59,7 @@ export default function Page() {
       localStorage.setItem('refresh_token', data.tokens.refresh_token);
       localStorage.setItem('user', JSON.stringify(data.user));
       
-      console.log('Signin successful!', data.user);
+      // console.log('Signin successful!', data.user);
       
       // Redirect to home page
       router.push('/');
