@@ -1,0 +1,19 @@
+[providers]
+node = "18.x"
+
+[phases.setup]
+cmds = [
+  "apt-get update",
+  "apt-get install -y curl",
+  "curl -fsSL https://deb.nodesource.com/setup_18.x | bash -",
+  "apt-get install -y nodejs"
+]
+
+[phases.install]
+cmds = ["npm install"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "node dist/main"
