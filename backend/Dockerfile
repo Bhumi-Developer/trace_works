@@ -1,23 +1,19 @@
-# Use an official Node.js runtime as a parent image
 FROM node:18-alpine
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
+# Copy package files
 COPY package*.json ./
+RUN npm ci --only=production
 
-# Install any needed packages
-RUN npm install
-
-# Bundle app source
+# Copy source code
 COPY . .
 
-# Build the app
+# Build the application
 RUN npm run build
 
-# Your app binds to port 3001, so you need to expose it
+# Expose port
 EXPOSE 3001
 
-# Define the command to run your app
-CMD [ "npm", "run", "start:prod" ]
+# Start the application
+CMD ["node", "dist/main"]
